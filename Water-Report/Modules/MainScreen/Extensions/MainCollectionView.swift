@@ -17,7 +17,7 @@ extension MainScreenController : UICollectionViewDelegate, UICollectionViewDataS
          cell.icon.image = myCollectionData[indexPath.item].iconImage
             cell.numberOfLiters.text = "\(String(describing: myCollectionData[indexPath.item].cellValue!))L"
             cell.collectionTitle.text = myCollectionData[indexPath.item].cellLabel
-            realsLabel.text = "R$\(String(describing: myData!.billValue!))"
+            realsLabel.text = "R$\(String(describing: myData!.billValue))"
         }
         return cell
     }

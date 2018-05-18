@@ -10,27 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Water-Report/Modules/MainScreen/View-Model/MainScreenViewModel.swift"
-            timestampString = "548099757.63147"
+            timestampString = "548297516.856691"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "MainScreenViewModel"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Water-Report/Modules/MainScreen/View-Model/MainScreenViewModel.swift"
-            timestampString = "548099757.6315809"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "retrieveData()"
             landmarkType = "7">
             <Locations>
@@ -42,11 +26,11 @@
                   moduleName = "Water-Report"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/matheusdutra/Desktop/Water-Report/Water-Report/Modules/MainScreen/View-Model/MainScreenViewModel.swift"
-                  timestampString = "548097472.182274"
+                  timestampString = "548112914.640624"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "39"
-                  endingLineNumber = "39"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
                   offsetFromSymbolStart = "461">
                </Location>
                <Location
@@ -57,12 +41,12 @@
                   moduleName = "Water-Report"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/matheusdutra/Desktop/Water-Report/Water-Report/Modules/MainScreen/View-Model/MainScreenViewModel.swift"
-                  timestampString = "548097472.1850131"
+                  timestampString = "548112914.642758"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "21">
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "18">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -74,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Water-Report/Modules/MainScreen/View-Model/MainScreenViewModel.swift"
-            timestampString = "548099757.631669"
+            timestampString = "548297516.85675"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "retrieveData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Water-Report/Modules/MainScreen/View-Model/MainScreenViewModel.swift"
-            timestampString = "548099757.6317281"
+            timestampString = "548297516.856804"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "retrieveData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Water-Report/Modules/MainScreen/View-Model/MainScreenViewModel.swift"
-            timestampString = "548099757.631785"
+            timestampString = "548297516.856843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "retrieveData()"
             landmarkType = "7">
          </BreakpointContent>

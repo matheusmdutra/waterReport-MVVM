@@ -8,12 +8,15 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 class MainScreenViewModel {
+    
     
     var fireData = FirebaseData()
     var fireHelper = FirebaseDataHelper()
     var delegate : mainScreenModelToView?
+    let realm = try! Realm()
     
     var cellData1 = CellDataMainScreen(image: #imageLiteral(resourceName: "today"), label: "Consumo\ndiário", value: nil)
     var cellData2 = CellDataMainScreen(image: #imageLiteral(resourceName: "month"), label: "Consumo\nmensal", value: nil)
@@ -52,10 +55,26 @@ class MainScreenViewModel {
          DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.collectionData.append(self.cellData1)
             self.collectionData.append(self.cellData2)
+            self.saveRealm(firebaseData: self.fireData)
+
             self.delegate?.updateUI(with: self.fireData, collectionData: self.collectionData)
     }
     }
+    
+    func saveRealm(firebaseData: FirebaseData) {
+        
+    
+        do {
+           try! realm.write {
+                realm.add(firebaseData)
+            }
+        }
+        catch {
+            print ("Error saving category: \(error)")
+        }
+    
     }
+}
     
     
     

@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct FirebaseData {
-    var litersPerDay : NSNumber?
-    var literesPerMonth : NSNumber?
-    var billValue : NSNumber?
+class FirebaseData : Object {
+    @objc dynamic var litersPerDay : NSNumber = 0
+    @objc dynamic var literesPerMonth : NSNumber = 0
+    @objc dynamic var billValue : NSNumber = 0
 }

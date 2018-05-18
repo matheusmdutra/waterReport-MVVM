@@ -202,12 +202,12 @@
 		05744DFF20A0DBB400382184 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				05744E0020A0DBC800382184 /* Assets */,
 				0557BCCE20A245A500522C3C /* GoogleService-Info.plist */,
+				05744DEA20A0DB8F00382184 /* AppDelegate.swift */,
+				05744DF620A0DB9200382184 /* Info.plist */,
+				05744E0020A0DBC800382184 /* Assets */,
 				0557BCCA20A2429A00522C3C /* Utils */,
 				05744E0B20A1033000382184 /* Extensions */,
-				05744DF620A0DB9200382184 /* Info.plist */,
-				05744DEA20A0DB8F00382184 /* AppDelegate.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
