@@ -9,8 +9,30 @@
 import Foundation
 import RealmSwift
 
+
 class FirebaseData : Object {
-    @objc dynamic var litersPerDay : NSNumber = 0
-    @objc dynamic var literesPerMonth : NSNumber = 0
-    @objc dynamic var billValue : NSNumber = 0
+    @objc dynamic var litersPerDay : Double = 0
+    @objc dynamic var literesPerMonth : Double = 0
+    @objc dynamic var billValue : Double = 0
+    @objc dynamic var primaryKey : String = "Primary"
+    
+    
+    override class func primaryKey() -> String? {
+        return "primaryKey"
+    }
+}
+
+
+extension FirebaseData {
+    
+    func saveRealm() {
+        let realm = try! Realm()
+        
+        do {
+            
+            try! realm.write {
+                realm.add(self, update: true)
+            }
+        }
+    }
 }

@@ -10,5 +10,7 @@ import Foundation
 import UIKit
 
 protocol mainScreenModelToView {
-    func updateUI(with data: FirebaseData?, collectionData: [CellDataMainScreen?])
+//    func updateUI(with data: FirebaseData?, collectionData: [CellDataMainScreen?])
+    func updateUI()
+
 }

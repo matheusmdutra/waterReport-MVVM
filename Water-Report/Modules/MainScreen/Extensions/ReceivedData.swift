@@ -10,11 +10,8 @@ import Foundation
 import UIKit
 
 extension MainScreenController : mainScreenModelToView {
-    func updateUI(with data: FirebaseData?, collectionData: [CellDataMainScreen?]) {
-        if let newData = data {
-            myData = newData
-        }
-        myCollectionData = collectionData as! [CellDataMainScreen]
+
+    func updateUI() {
         collectionView.reloadData()
         hideLoading()
     }

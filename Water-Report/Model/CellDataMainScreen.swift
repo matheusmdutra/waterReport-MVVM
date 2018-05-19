@@ -12,9 +12,9 @@ import UIKit
 struct CellDataMainScreen {
     var iconImage: UIImage
     var cellLabel : String
-    var cellValue : NSNumber?
+    var cellValue : Double?
     
-    init(image: UIImage, label: String, value: NSNumber?) {
+    init(image: UIImage, label: String, value: Double?) {
         iconImage = image
         cellLabel = label
         cellValue = value

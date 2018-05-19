@@ -8,14 +8,18 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 class MainScreenController : BaseViewController, UICollectionViewDelegateFlowLayout {
     
-    
+    let realm = try! Realm()
     var viewModel = MainScreenViewModel()
-    var myData : FirebaseData?
-    var myCollectionData = [CellDataMainScreen]()
-
+    var myData : Results<FirebaseData>!
+    
+    var collectionData = [
+        CellDataMainScreen(image: #imageLiteral(resourceName: "today"), label: "Consumo\ndiário", value: 0),
+        CellDataMainScreen(image: #imageLiteral(resourceName: "month"), label: "Consumo\nmensal", value: 0)
+    ]
     
     var topContainer : UIImageView = {
         var myTopContainer = UIImageView()
@@ -246,15 +250,22 @@ class MainScreenController : BaseViewController, UICollectionViewDelegateFlowLay
     }()
         
     override func viewDidLoad() {
+        navigationController?.navigationBar.transparentNavigationBar()
+        setupRealm()
         setupLayout()
         setupMyCollection()
-        navigationController?.navigationBar.transparentNavigationBar()
+        viewModel.retrieveAllData()
         viewModel.delegate = self
-        viewModel.retrieveData()
         showLoading()
-    
+      
+        
+       
     }
-    
+    func setupRealm () {
+        myData = realm.objects(FirebaseData.self)
+        collectionData[0].cellValue = myData.first?.litersPerDay
+        collectionData[1].cellValue = myData.first?.literesPerMonth
+    }
     func setupMyCollection() {
             collectionView.register(MainCell.self, forCellWithReuseIdentifier: "cell")
             collectionView.dataSource = self

@@ -13,12 +13,13 @@ import UIKit
 extension MainScreenController : UICollectionViewDelegate, UICollectionViewDataSource  {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell" , for: indexPath) as! MainCell
-        if myCollectionData.count > 0 {
-         cell.icon.image = myCollectionData[indexPath.item].iconImage
-            cell.numberOfLiters.text = "\(String(describing: myCollectionData[indexPath.item].cellValue!))L"
-            cell.collectionTitle.text = myCollectionData[indexPath.item].cellLabel
-            realsLabel.text = "R$\(String(describing: myData!.billValue))"
+        if myData.count > 0 {
+            cell.icon.image = collectionData[indexPath.item].iconImage
+            cell.numberOfLiters.text = "\(String(describing: collectionData[indexPath.item].cellValue!))L"
+            cell.collectionTitle.text = collectionData[indexPath.item].cellLabel
+            realsLabel.text = "R$\(String(describing: myData!.first!.billValue))"
         }
+        
         return cell
     }
     
@@ -35,12 +36,12 @@ extension MainScreenController : UICollectionViewDelegate, UICollectionViewDataS
         return CGSize(width: collectionViewSize , height: collectionView.bounds.height)
     }
     
-     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let pointX = targetContentOffset.pointee.x
         let currentPage = Int( pointX / (view.frame.width - 60))
         pageControl.currentPage = currentPage
-     
+        
     }
     
-
+    
 }
