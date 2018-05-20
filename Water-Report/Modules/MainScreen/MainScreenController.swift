@@ -257,14 +257,15 @@ class MainScreenController : BaseViewController, UICollectionViewDelegateFlowLay
         viewModel.retrieveAllData()
         viewModel.delegate = self
         showLoading()
+      
+        
+       
     }
-    
     func setupRealm () {
         myData = realm.objects(FirebaseData.self)
         collectionData[0].cellValue = myData.first?.litersPerDay
         collectionData[1].cellValue = myData.first?.literesPerMonth
     }
-    
     func setupMyCollection() {
             collectionView.register(MainCell.self, forCellWithReuseIdentifier: "cell")
             collectionView.dataSource = self
@@ -272,4 +273,6 @@ class MainScreenController : BaseViewController, UICollectionViewDelegateFlowLay
             collectionView.isPagingEnabled = true
             collectionView.showsHorizontalScrollIndicator = false
     }
+    
+  
 }
