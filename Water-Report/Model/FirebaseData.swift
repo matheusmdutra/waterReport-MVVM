@@ -15,7 +15,6 @@ class FirebaseData : Object {
     @objc dynamic var literesPerMonth : Double = 0
     @objc dynamic var billValue : Double = 0
     @objc dynamic var primaryKey : String = "Primary"
-
     
     
     override class func primaryKey() -> String? {
