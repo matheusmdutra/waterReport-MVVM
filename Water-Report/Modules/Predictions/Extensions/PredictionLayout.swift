@@ -10,28 +10,37 @@ import Foundation
 import UIKit
 
 extension PredictionViewController {
-    
+ 
+    func setupComponents() {
+         
+        wrLogo = GlobalLayout.sharedInstance.createImageView(image: #imageLiteral(resourceName: "logo-short"), size: .init(width: 20, height: 20))
+        topContainer = GlobalLayout.sharedInstance.createImageView(image: #imageLiteral(resourceName: "wallpaper"), size: .zero)
+        menuLabel = GlobalLayout.sharedInstance.createLabel(text: "Previsões", fontName: "Optima", size: 23, color: .white)
+        
+        nPessoasIcon = GlobalLayout.sharedInstance.createImageView(image: #imageLiteral(resourceName: "person-icon-blue-7573"), size: .init(width: 40, height: 40))
+        nPessoasLabel = GlobalLayout.sharedInstance.createLabel(text: "Teste", fontName: "Optima", size: 23, color: .blue)
+        nPessoasTwoPoints = GlobalLayout.sharedInstance.createLabel(text: ":", fontName: "Optima", size: 23, color: .blue)
+        nPessoasValue = GlobalLayout.sharedInstance.createLabel(text: "20L", fontName: "Optima", size: 23, color: .blue)
+        nPessoasStack = GlobalLayout.sharedInstance.createStack(distribution: .fill, spacing: 10, axis: .horizontal)
+        nPessoasView = GlobalLayout.sharedInstance.genericView(stackView: nPessoasStack, imageView: nPessoasIcon, descriptionLabel: nPessoasLabel, twoPointsLabel: nPessoasTwoPoints, valueLabel: nPessoasValue)
+    }
     func setupLayout() {
+        view.backgroundColor = .white
+        let topPadding = UIApplication.shared.keyWindow?.safeAreaInsets.top
+        let screenHeight = UIScreen.main.bounds.height
+        print (screenHeight) // 667
+       
         
-        view.addSubview(topContainer)
-        topContainer.addSubview(menuLabel)
-        topContainer.addSubview(wrLogo)
+        [topContainer,menuLabel,wrLogo, nPessoasView].forEach {view.addSubview($0)}
         
-        NSLayoutConstraint.activate([
-            
-            // Setting Top Container
-            topContainer.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.09),
-            topContainer.topAnchor.constraint(equalTo: view.topAnchor),
-            topContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            topContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            // Setting Menu Label
-            menuLabel.centerXAnchor.constraint(equalTo: topContainer.centerXAnchor),
-            menuLabel.centerYAnchor.constraint(equalTo: topContainer.centerYAnchor, constant: 5),
-            
-            wrLogo.trailingAnchor.constraint(equalTo: topContainer.trailingAnchor, constant: -15),
-            wrLogo.centerYAnchor.constraint(equalTo: topContainer.centerYAnchor, constant: 5),
-        
-        ])
+        topContainer.complexAnchor(top: view.topAnchor, bottom: nil, left: view.leadingAnchor, right: view.trailingAnchor, padding: .zero, size: .init(width: 0, height: (screenHeight * 0.08995502249) + topPadding!/4), centerYto: nil, centerXto: nil)
+        menuLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        menuLabel.centerYAnchor.constraint(equalTo: topContainer.centerYAnchor, constant: topPadding!/2).isActive = true
+        wrLogo.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
+        wrLogo.centerYAnchor.constraint(equalTo: topContainer.centerYAnchor, constant: topPadding!/2).isActive = true
+        nPessoasView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        nPessoasView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+
+
     }
 }

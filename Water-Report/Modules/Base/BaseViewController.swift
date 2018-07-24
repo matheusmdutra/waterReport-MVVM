@@ -19,6 +19,12 @@ import UIKit
 import MBProgressHUD
 import Localize_Swift
 
+protocol BaseProtocol : class  {
+    func loadingData()
+    func showLoginError(message: String)
+    func goToNextController(named: LoginDestinations)
+    func loadedData()
+}
 
 class BaseViewController: UIViewController {
     

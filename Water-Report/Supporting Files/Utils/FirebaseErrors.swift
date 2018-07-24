@@ -10,8 +10,11 @@ import Foundation
 import Firebase
 
 class FirebaseErrors {
+    
     static var sharedInstance = FirebaseErrors()
+    
     var lastError : String?
+    
     func fireErrorHandle(code: FIRAuthErrorCode) -> String {
         switch code {
         case .errorCodeInvalidEmail:

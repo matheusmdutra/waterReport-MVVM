@@ -11,144 +11,81 @@ import UIKit
 
 extension MainScreenController {
     func setupLayout() {
-     
-        view.addSubview(topContainer)
-        view.addSubview(middleContainer)
-        view.addSubview(bottomContainer)
         
-        topContainer.addSubview(menuLabel)
-        topContainer.addSubview(wrLogo)
-        
-        middleContainer.addSubview(collectionView)
-        middleContainer.addSubview(pageControl)
-        middleContainer.addSubview(touchIcon)
-        
-        
+        let heightOfSafeAreaIphoneX = UIApplication.shared.keyWindow?.safeAreaInsets.top
+    
         let billIconContainerView = UIView()
         let billLabelContainerView = UIView()
         let twoPointsContainerView = UIView()
         let numberOfRealsContainerView = UIView()
         
+        //=====================================\\
+        //  *********  Adding views  ********\\
+        //======================================\\
         
-        billStack.addArrangedSubview(billIconContainerView)
-        billStack.addArrangedSubview(billLabelContainerView)
-        billStack.addArrangedSubview(twoPointsContainerView)
-        billStack.addArrangedSubview(numberOfRealsContainerView)
+        [topContainer,middleContainer,bottomContainer].forEach { view.addSubview($0) }
+        
+        [viewTitle,wrLogo].forEach { topContainer.addSubview($0) }
+        
+        [collectionView,pageControl,touchIcon].forEach { middleContainer.addSubview($0) }
+        
+        [billIconContainerView,billLabelContainerView,twoPointsContainerView,numberOfRealsContainerView].forEach { billStack.addArrangedSubview($0) }
+        
+        [billView,billIcon,realsLabel,billLabel,twoPoints].forEach { middleContainer.addSubview($0) }
+        
         billView.addSubview(billStack)
-        middleContainer.addSubview(billView)
-        middleContainer.addSubview(billIcon)
-        middleContainer.addSubview(billLabel)
-        middleContainer.addSubview(twoPoints)
-        middleContainer.addSubview(realsLabel)
         
-        historicoStack.addArrangedSubview(historicIcon)
-        historicoStack.addArrangedSubview(historicLabel)
+        [historicIcon,historicLabel].forEach { historicoStack.addArrangedSubview($0) }
+        
         historicView.addSubview(historicoStack)
-
         
-        previsaoStack.addArrangedSubview(previsaoIcon)
-        previsaoStack.addArrangedSubview(previsaoLabel)
+        [previsaoIcon,previsaoLabel].forEach { previsaoStack.addArrangedSubview($0) }
+        
         previsaoView.addSubview(previsaoStack)
-      
-        buttonStack.addArrangedSubview(historicView)
-        buttonStack.addArrangedSubview(previsaoView)
         
-        bottomContainer.addSubview(buttonStack)
+        [historicView,previsaoView].forEach { historicAndPrevisionStack.addArrangedSubview($0) }
         
+        bottomContainer.addSubview(historicAndPrevisionStack)
         
+        //=====================================\\
+        //  *********  Setting Anchors  ********\\
+        //======================================\\
         
-        NSLayoutConstraint.activate([
-            
-            // Setting Top Container
-            topContainer.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.09),
-            topContainer.topAnchor.constraint(equalTo: view.topAnchor),
-            topContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            topContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            // Setting Menu Label
-            menuLabel.centerXAnchor.constraint(equalTo: topContainer.centerXAnchor),
-            menuLabel.centerYAnchor.constraint(equalTo: topContainer.centerYAnchor, constant: 5),
-            
-            wrLogo.trailingAnchor.constraint(equalTo: topContainer.trailingAnchor, constant: -15),
-            wrLogo.centerYAnchor.constraint(equalTo: topContainer.centerYAnchor, constant: 5),
-            
-            // Setting Middle Container
-            middleContainer.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.46),
-            middleContainer.topAnchor.constraint(equalTo: topContainer.bottomAnchor),
-            middleContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            middleContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            
-            collectionView.topAnchor.constraint(equalTo: topContainer.bottomAnchor, constant: 20),
-            collectionView.trailingAnchor.constraint(equalTo: middleContainer.trailingAnchor, constant: -30),
-            collectionView.leadingAnchor.constraint(equalTo: middleContainer.leadingAnchor, constant: 30),
-            collectionView.bottomAnchor.constraint(equalTo: pageControl.topAnchor, constant: -10),
-         
-            
-            pageControl.centerXAnchor.constraint(equalTo: middleContainer.centerXAnchor),
-            pageControl.centerYAnchor.constraint(equalTo: middleContainer.centerYAnchor),
-//            pageControl.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 5),
-            
-            touchIcon.leadingAnchor.constraint(equalTo: pageControl.trailingAnchor, constant: 11.5),
-            touchIcon.centerYAnchor.constraint(equalTo: middleContainer.centerYAnchor),
-            
-            // Setting Bill Stack
-            
-            billView.topAnchor.constraint(equalTo: pageControl.bottomAnchor, constant: 10),
+        topContainer.simpleAnchor(top: view.topAnchor, bottom: nil, left: view.leadingAnchor, right: view.trailingAnchor, padding: .zero, size: .init(width: 0, height: view.frame.height * 0.09))
         
-              billView.leadingAnchor.constraint(equalTo: middleContainer.leadingAnchor, constant: 30),
-               billView.trailingAnchor.constraint(equalTo: middleContainer.trailingAnchor, constant: -30),
-               billView.bottomAnchor.constraint(equalTo: middleContainer.bottomAnchor, constant: -20),
-            
+        middleContainer.simpleAnchor(top: topContainer.bottomAnchor, bottom: nil, left: view.leadingAnchor, right: view.trailingAnchor, padding: .zero, size: .init(width: 0, height: view.frame.height * 0.46))
+        
+        bottomContainer.simpleAnchor(top: nil, bottom: view.bottomAnchor, left: view.leadingAnchor, right: view.trailingAnchor, padding: .zero, size: .init(width: 0, height: view.frame.height * 0.45))
+        
+        viewTitle.anchorCenteredTo(view: topContainer, paddingX: 0, paddingY: (heightOfSafeAreaIphoneX ?? 0)/4)
 
-            
-            billStack.centerXAnchor.constraint(equalTo: billView.centerXAnchor),
-            billStack.centerYAnchor.constraint(equalTo: billView.centerYAnchor),
-            
-
-
-            billIcon.leadingAnchor.constraint(equalTo: billIconContainerView.leadingAnchor),
-            billIcon.trailingAnchor.constraint(equalTo: billIconContainerView.trailingAnchor),
-            billIcon.topAnchor.constraint(equalTo: billIconContainerView.topAnchor),
-            billIcon.bottomAnchor.constraint(equalTo: billIconContainerView.bottomAnchor),
-
-            billLabel.leadingAnchor.constraint(equalTo: billLabelContainerView.leadingAnchor),
-            billLabel.trailingAnchor.constraint(equalTo: billLabelContainerView.trailingAnchor),
-            billLabel.topAnchor.constraint(equalTo: billLabelContainerView.topAnchor),
-            billLabel.bottomAnchor.constraint(equalTo: billLabelContainerView.bottomAnchor),
-
-            twoPoints.leadingAnchor.constraint(equalTo: twoPointsContainerView.leadingAnchor),
-            twoPoints.trailingAnchor.constraint(equalTo: twoPointsContainerView.trailingAnchor),
-            twoPoints.topAnchor.constraint(equalTo: twoPointsContainerView.topAnchor),
-            twoPoints.bottomAnchor.constraint(equalTo: twoPointsContainerView.bottomAnchor),
-
-            realsLabel.leadingAnchor.constraint(equalTo: numberOfRealsContainerView.leadingAnchor),
-            realsLabel.trailingAnchor.constraint(equalTo: numberOfRealsContainerView.trailingAnchor),
-            realsLabel.topAnchor.constraint(equalTo: numberOfRealsContainerView.topAnchor),
-            realsLabel.bottomAnchor.constraint(equalTo: numberOfRealsContainerView.bottomAnchor),
-//
-            // Setting Bottom Container
-            bottomContainer.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.45),
-            bottomContainer.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            bottomContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            bottomContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-
-          
-            
-            historicoStack.leadingAnchor.constraint(equalTo: historicView.leadingAnchor),
-            historicoStack.trailingAnchor.constraint(equalTo: historicView.trailingAnchor),
-            historicoStack.topAnchor.constraint(equalTo: historicView.topAnchor),
-            historicoStack.bottomAnchor.constraint(equalTo: historicView.bottomAnchor),
-            
-            previsaoStack.leadingAnchor.constraint(equalTo: previsaoView.leadingAnchor),
-            previsaoStack.trailingAnchor.constraint(equalTo: previsaoView.trailingAnchor),
-            previsaoStack.topAnchor.constraint(equalTo: previsaoView.topAnchor),
-            previsaoStack.bottomAnchor.constraint(equalTo: previsaoView.bottomAnchor),
-            
-            
-         buttonStack.centerXAnchor.constraint(equalTo: bottomContainer.centerXAnchor),
-         buttonStack.centerYAnchor.constraint(equalTo: bottomContainer.centerYAnchor, constant: -CGFloat((tabBarController?.tabBar.bounds.height)!))
-            
-            ])
+        wrLogo.complexAnchor(top: nil, bottom: nil, left: nil, right: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 20), size: .init(width: 22, height: 22), centerYto: nil, centerXto: nil)
+        
+        wrLogo.centerYAnchor.constraint(equalTo: topContainer.centerYAnchor, constant: (heightOfSafeAreaIphoneX ?? 0)/4).isActive = true
+        
+        collectionView.simpleAnchor(top: topContainer.bottomAnchor, bottom: pageControl.topAnchor, left: middleContainer.leadingAnchor, right: middleContainer.trailingAnchor, padding: .init(top: 30 * App().proportion, left: 30, bottom: 20 * App().proportion, right: 30), size: .zero)
+        
+        pageControl.anchorCenteredTo(view: middleContainer, paddingX: nil, paddingY: nil)
+        
+        touchIcon.complexAnchor(top: nil, bottom: nil, left: pageControl.trailingAnchor, right: nil, padding: .init(top: 0, left: 11.5, bottom: 0, right: 0), size: .zero, centerYto: middleContainer, centerXto: nil)
+        
+        billView.simpleAnchor(top: pageControl.bottomAnchor, bottom: middleContainer.bottomAnchor, left: middleContainer.leadingAnchor, right: middleContainer.trailingAnchor, padding: .init(top: 30 * App().proportion, left: 30, bottom: 20 * App().proportion, right: 30), size: .zero)
+        
+        billStack.anchorCenteredTo(view: billView, paddingX: nil, paddingY: nil)
+        
+        billIcon.anchorEqualTo(view: billIconContainerView)
+        
+        billLabel.anchorEqualTo(view: billLabelContainerView)
+        
+        twoPoints.anchorEqualTo(view: twoPointsContainerView)
+        
+        realsLabel.anchorEqualTo(view: numberOfRealsContainerView)
+        
+        historicoStack.anchorEqualTo(view: historicView)
+        
+        previsaoStack.anchorEqualTo(view: previsaoView)
+        
+        historicAndPrevisionStack.anchorCenteredTo(view: bottomContainer, paddingX: nil, paddingY: -CGFloat((tabBarController?.tabBar.bounds.height)!))
+        
     }
 }

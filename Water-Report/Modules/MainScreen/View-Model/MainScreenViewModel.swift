@@ -12,21 +12,50 @@ import RealmSwift
 
 class MainScreenViewModel {
     
-    var delegate : mainScreenModelToView?
+    var myData : Results<FirebaseData>!
+    
+    let realm = try! Realm()
+    
+    var collectionData = [
+        CellDataMainScreen(image: #imageLiteral(resourceName: "today"), label: "Consumo\ndiário", value: 0),
+        CellDataMainScreen(image: #imageLiteral(resourceName: "month"), label: "Consumo\nmensal", value: 0)
+    ]
+    
     var fireHelper = FirebaseDataHelper()
-
+    
+    var delegate : BaseProtocol?
+    
+    init(delegate: BaseProtocol?) {
+        self.delegate = delegate
+    }
+    
+    func startWorking() {
+        retrieveAllData()
+    }
+    
+    func setupData () {
+        myData = realm.objects(FirebaseData.self)
+        
+        if myData.count > 0 {
+            collectionData[0].cellValue = myData.first?.litersPerDay
+            collectionData[1].cellValue = myData.first?.literesPerMonth
+        }
+        
+        retrieveAllData()
+    }
     func retrieveAllData() {
+        delegate?.loadingData()
         FirebaseDataHelper.sharedInstance.retrieveAllData(success: { (myData) in
-            var fireData = FirebaseData()
+            let fireData = FirebaseData()
             fireData.billValue = (myData?.billValue)!
             fireData.literesPerMonth = (myData?.literesPerMonth)!
             fireData.litersPerDay = (myData?.litersPerDay)!
             fireData.saveRealm()
-            self.delegate?.updateUI()
             
         }) { (error) in
             print (error)
         }
+        delegate?.loadedData()
     }
 }
 

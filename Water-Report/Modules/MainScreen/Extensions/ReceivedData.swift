@@ -9,12 +9,28 @@
 import Foundation
 import UIKit
 
-extension MainScreenController : mainScreenModelToView {
-
-    func updateUI() {
-        collectionView.reloadData()
+extension MainScreenController : BaseProtocol {
+    
+    func loadingData() {
+        showLoading()
+    }
+    
+    func showLoginError(message: String) {
         hideLoading()
     }
+    
+    func goToNextController(named: LoginDestinations) {
+        
+    }
+    
+    func loadedData() {
+        hideLoading()
+    }
+    
+    
+
+
+  
     
     
     

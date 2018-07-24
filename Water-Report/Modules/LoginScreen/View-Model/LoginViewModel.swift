@@ -11,26 +11,37 @@ import UIKit
 import Firebase
 
 class LoginViewModel {
-    var user = CurrentUser()
-    var delegate : LoginView?
-    var router : LoginRouter?
     
+    var delegate : BaseProtocol?
+    
+    var helper = FirebaseLoginHelper()
+    
+    var user : CurrentUser?
+    
+    init(delegate: BaseProtocol?) {
+        self.delegate = delegate
+    }
     
     func checkUserInfo(email: String?, password: String?) {
+        
         if email?.count == 0 || password?.count == 0 {
-        self.delegate?.showLoginError(message: "Para realizar o login, é necessário o preenchimento de todos os campos")
-            user.email = ""
-            user.password = ""
+            self.delegate?.showLoginError(message: "Para realizar o login, é necessário o preenchimento de todos os campos")
+            
         } else {
-            user.email = email
-            user.password = password
+            guard let email = email else { return }
+            guard let password = password else { return }
+            let user = CurrentUser(name: "", email: email, password: password)
+            self.user = user
             loginFirebase()
         }
     }
     
     func loginFirebase() {
-        FirebaseLoginHelper.sharedInstance.signIn(email: user.email!, password: user.password!, success: {
-            self.router?.goToNextController(named: .mainScreen)
+        self.delegate?.loadingData()
+        guard let user = user else { return }
+        helper.signIn(email: user.email, password: user.password, success: {
+            self.delegate?.loadedData()
+            self.delegate?.goToNextController(named: .mainScreen)
         }) { (error) in
             self.delegate?.showLoginError(message: error!)
         }
