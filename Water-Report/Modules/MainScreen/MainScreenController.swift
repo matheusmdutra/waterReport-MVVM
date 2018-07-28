@@ -72,6 +72,9 @@ class MainScreenController : BaseViewController, UICollectionViewDelegateFlowLay
         
         setupLayout()
         
+        readModel()
+
+        
     }
     
     func setupSpecialParameters() {

@@ -22,14 +22,22 @@ class FirebaseDataHelper {
     var myDictionary = [String : Any]()
     
     func retrieveAllData (success: @escaping (_ data: FirebaseData?) -> Void , failure: ((_ error: String?) -> Void)?) {
-        ref.child( (usuario_definido?.uid)!).observe(.value, with: { (snapshot) in
+        
+        guard let uid = usuario_definido?.uid else { return failure!("Infelizmente um erro inesperado aconteceu.") }
+        
+        ref.child((uid)).observe(.value, with: { (snapshot) in
             for snap in snapshot.children.allObjects as! [FIRDataSnapshot] {
                 self.myDictionary[snap.key] = snap.value
             }
-            self.firebaseData.billValue = self.myDictionary["Conta"] as! Double
-            self.firebaseData.litersPerDay = self.myDictionary["Litros Diarios"] as! Double
-            self.firebaseData.literesPerMonth = self.myDictionary["Litros Mensais"]! as! Double
+            
+            self.firebaseData = FirebaseData(
+                litersPerDay:  self.myDictionary["Litros Diarios"] as? Double ?? 0,
+                litersPerMonth: self.myDictionary["Litros Mensais"] as? Double ?? 0,
+                billValue: self.myDictionary["Conta"] as? Double ?? 0
+            )
+
             success(self.firebaseData)
+            
         }) { (error) in
             failure!(error.localizedDescription)
         }
@@ -60,7 +68,10 @@ class FirebaseDataHelper {
     
     
     func retreiveBill(success: @escaping (_ billValue: Double?) -> Void  , failure: ((_ error: String?) -> Void)?) {
-        ref.child( (usuario_definido?.uid)!).child("Conta").observe(.value, with: { (snapshot) in
+        
+        guard let uid = usuario_definido?.uid else { return failure!("Infelizmente um erro inesperado aconteceu.") }
+        
+        ref.child(uid).child("Conta").observe(.value, with: { (snapshot) in
             guard snapshot.exists() else {return}
             let billValue = snapshot.value as? Double
             success(billValue)

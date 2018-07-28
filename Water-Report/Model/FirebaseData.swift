@@ -20,6 +20,13 @@ class FirebaseData : Object {
     override class func primaryKey() -> String? {
         return "primaryKey"
     }
+    
+    convenience init (litersPerDay: Double, litersPerMonth: Double, billValue: Double) {
+        self.init()
+        self.litersPerDay = litersPerDay
+        self.literesPerMonth = litersPerMonth
+        self.billValue = billValue
+    }
 }
 
 
