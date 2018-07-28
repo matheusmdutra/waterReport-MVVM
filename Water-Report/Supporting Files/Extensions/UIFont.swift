@@ -13,7 +13,7 @@ extension UIFont  {
     func retrieveAppFont(named: AppFonts) -> UIFont {
         switch named {
         case .normal:
-            return UIFont.systemFont(ofSize: App().proportion * 14)
+            return UIFont.systemFont(ofSize: App().proportion * 17)
         case .small:
             return UIFont.systemFont(ofSize: App().proportion * 13)
         case .smallest:

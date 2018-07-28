@@ -21,9 +21,10 @@ import Localize_Swift
 
 protocol BaseProtocol : class  {
     func loadingData()
-    func showLoginError(message: String)
+    func showError(message: String)
     func goToNextController(named: LoginDestinations)
     func loadedData()
+    func readModel()
 }
 
 class BaseViewController: UIViewController {

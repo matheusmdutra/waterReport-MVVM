@@ -27,8 +27,8 @@ class FirebaseDataHelper {
                 self.myDictionary[snap.key] = snap.value
             }
             self.firebaseData.billValue = self.myDictionary["Conta"] as! Double
-            self.firebaseData.literesPerMonth = self.myDictionary["Litros Diarios"] as! Double
-            self.firebaseData.litersPerDay = self.myDictionary["Litros Mensais"]! as! Double
+            self.firebaseData.litersPerDay = self.myDictionary["Litros Diarios"] as! Double
+            self.firebaseData.literesPerMonth = self.myDictionary["Litros Mensais"]! as! Double
             success(self.firebaseData)
         }) { (error) in
             failure!(error.localizedDescription)

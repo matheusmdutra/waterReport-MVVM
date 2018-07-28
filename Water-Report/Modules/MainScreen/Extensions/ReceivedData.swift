@@ -11,11 +11,16 @@ import UIKit
 
 extension MainScreenController : BaseProtocol {
     
+    func readModel() {
+        realsLabel.text =  "R$ \(viewModel.billValue)"
+        collectionView.reloadData()
+    }
+    
     func loadingData() {
         showLoading()
     }
     
-    func showLoginError(message: String) {
+    func showError(message: String) {
         hideLoading()
     }
     
@@ -24,6 +29,7 @@ extension MainScreenController : BaseProtocol {
     }
     
     func loadedData() {
+        readModel()
         hideLoading()
     }
     

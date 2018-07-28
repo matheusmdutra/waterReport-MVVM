@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		051F72E12103E9E700D6FF47 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F72E02103E9E700D6FF47 /* UIImage.swift */; };
 		051F72E32104BD2F00D6FF47 /* ComplexComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F72E22104BD2F00D6FF47 /* ComplexComponents.swift */; };
+		052D9DB5210955D800CA59D9 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052D9DB4210955D800CA59D9 /* UIColor.swift */; };
 		0546973720CD8820001B833A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0546973620CD8820001B833A /* UIView.swift */; };
 		0546973920CDB9B2001B833A /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0546973820CDB9B2001B833A /* Layout.swift */; };
 		0557BCBE20A221D900522C3C /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0557BCBD20A221D900522C3C /* UIViewController.swift */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		051F72E02103E9E700D6FF47 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		051F72E22104BD2F00D6FF47 /* ComplexComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexComponents.swift; sourceTree = "<group>"; };
+		052D9DB4210955D800CA59D9 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		0546973620CD8820001B833A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		0546973820CDB9B2001B833A /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		0557BCBD20A221D900522C3C /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				0546973620CD8820001B833A /* UIView.swift */,
 				05EF46C520F296F4008BCD7C /* UIFont.swift */,
 				051F72E02103E9E700D6FF47 /* UIImage.swift */,
+				052D9DB4210955D800CA59D9 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				05EF46CF20F2E500008BCD7C /* LoginScreenRouter.swift in Sources */,
 				0546973720CD8820001B833A /* UIView.swift in Sources */,
 				0592902720A79931000B930D /* PredictionViewController.swift in Sources */,
+				052D9DB5210955D800CA59D9 /* UIColor.swift in Sources */,
 				05744E1020A103F500382184 /* BaseViewController.swift in Sources */,
 				05C6CAC720AB50C000090E25 /* CellDataMainScreen.swift in Sources */,
 				0557BCDF20A27F2700522C3C /* MainLayout.swift in Sources */,

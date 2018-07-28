@@ -31,23 +31,23 @@ class MainScreenController : BaseViewController, UICollectionViewDelegateFlowLay
     
     var billIcon = GlobalComponents().createImageViewWith(image: #imageLiteral(resourceName: "bill"), contentMode: .scaleAspectFit, sizeOfImage: .init(width: 60, height: 60))
     
-    var billLabel = GlobalComponents().createSimpleLabel(text: "Valor total", textColor: .blue, font: AppFonts.header)
+    var billLabel = GlobalComponents().createSimpleLabel(text: "Estimativa\nconta",  textColor: #colorLiteral(red: 0, green: 0.1717664931, blue: 0.4632703993, alpha: 1), numberOflines: 2, font: AppFonts.normal)
     
-    var twoPoints = GlobalComponents().createSimpleLabel(text: ":", textColor: .blue, font: AppFonts.header)
+    var twoPoints = GlobalComponents().createSimpleLabel(text: ":", textColor:#colorLiteral(red: 0, green: 0.1717664931, blue: 0.4632703993, alpha: 1), font: AppFonts.normal)
     
-    var realsLabel = GlobalComponents().createSimpleLabel(text: "R$0", textColor: .blue, font: AppFonts.header)
+    var realsLabel = GlobalComponents().createSimpleLabel(text: "R$0", textColor: #colorLiteral(red: 0, green: 0.1717664931, blue: 0.4632703993, alpha: 1), font: AppFonts.normal)
     
     var billView = ComplexComponents().createViewWith(backgroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), borderWidht: 1, borderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1) , cornerRadius: 10, maskedCorners: nil)
     
-    var billStack = GlobalComponents().createStackView(axis: .horizontal, spacing: 10, distribution: .fill)
+    var billStack = GlobalComponents().createStackView(axis: .horizontal, spacing: 15, distribution: .fill)
     
     var historicView = GlobalComponents().createViewWith(backgroundColor: nil)
     
     var historicIcon = ComplexComponents().createButtom(title: nil, titleColor: nil, font: .normal, backColor: .clear, corner: 0, image: #imageLiteral(resourceName: "historic"), imageSize: .init(width: 70, height: 70))
     
-    var historicLabel = GlobalComponents().createSimpleLabel(text: "Histórico", textColor: .blue, font: .header)
+    var historicLabel = GlobalComponents().createSimpleLabel(text: "Histórico", textColor: .darkBlue, font: .normal)
     
-    var historicoStack = GlobalComponents().createStackView(axis: .vertical, spacing: 0, distribution: .fill)
+    var historicoStack = GlobalComponents().createStackView(axis: .vertical, spacing: 4, distribution: .fill)
     
     var previsaoView = GlobalComponents().createViewWith(backgroundColor: nil)
     
@@ -58,9 +58,9 @@ class MainScreenController : BaseViewController, UICollectionViewDelegateFlowLay
         //        router.goToNextController(from: self, to: .predictions)
     }
     
-    var previsaoLabel = GlobalComponents().createSimpleLabel(text: "Previsão", textColor: .blue, font: .header)
+    var previsaoLabel = GlobalComponents().createSimpleLabel(text: "Previsão", textColor: .darkBlue, font: .normal)
     
-    var previsaoStack = GlobalComponents().createStackView(axis: .vertical, spacing: 0, distribution: .fill)
+    var previsaoStack = GlobalComponents().createStackView(axis: .vertical, spacing: 2, distribution: .fill)
     
     var historicAndPrevisionStack = GlobalComponents().createStackView(axis: .horizontal, spacing: 50, distribution: .fill)
     
@@ -69,8 +69,6 @@ class MainScreenController : BaseViewController, UICollectionViewDelegateFlowLay
         setupSpecialParameters()
         
         viewModel.setupData()
-        
-        viewModel.retrieveAllData()
         
         setupLayout()
         

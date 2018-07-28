@@ -25,9 +25,9 @@ class LoginViewController: BaseViewController  {
     
     var topLogo = GlobalComponents().createImageViewWith(image: #imageLiteral(resourceName: "logo-full"), contentMode: .scaleAspectFill)
     
-    var emailTextField = GlobalComponents().createTextFieldWith(text: "matheusdut@gmail.com", placeHolder: "Digite o seu email", keyboardType: .emailAddress, backgroundColor: #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9568627451, alpha: 1) , font: .normal , corner: 5)
+    var emailTextField = GlobalComponents().createTextFieldWith(text: "matheusdut@gmail.com", placeHolder: "Digite o seu email", keyboardType: .emailAddress, backgroundColor: #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9568627451, alpha: 1) , font: .small , corner: 5)
     
-    var passwordTextField = GlobalComponents().createTextFieldWith(text: "040893milbradt", placeHolder: "Digite a sua senha", keyboardType: .emailAddress, backgroundColor: #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9568627451, alpha: 1) , font: .normal , corner: 5)
+    var passwordTextField = GlobalComponents().createTextFieldWith(text: "040893milbradt", placeHolder: "Digite a sua senha", keyboardType: .emailAddress, backgroundColor: #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9568627451, alpha: 1) , font: .small , corner: 5)
 
     var textFieldStack = GlobalComponents().createStackView(axis: .vertical, spacing: 20, distribution: .fillEqually)
  

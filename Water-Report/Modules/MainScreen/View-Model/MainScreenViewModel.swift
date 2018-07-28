@@ -21,6 +21,7 @@ class MainScreenViewModel {
         CellDataMainScreen(image: #imageLiteral(resourceName: "month"), label: "Consumo\nmensal", value: 0)
     ]
     
+    var billValue = Double()
     var fireHelper = FirebaseDataHelper()
     
     var delegate : BaseProtocol?
@@ -34,29 +35,44 @@ class MainScreenViewModel {
     }
     
     func setupData () {
+        
         myData = realm.objects(FirebaseData.self)
         
         if myData.count > 0 {
-            collectionData[0].cellValue = myData.first?.litersPerDay
-            collectionData[1].cellValue = myData.first?.literesPerMonth
+            guard let data = myData.first else { return }
+            collectionData[0].cellValue = data.litersPerDay
+            collectionData[1].cellValue = data.literesPerMonth
+            billValue = data.billValue
         }
         
         retrieveAllData()
     }
     func retrieveAllData() {
+        
         delegate?.loadingData()
         FirebaseDataHelper.sharedInstance.retrieveAllData(success: { (myData) in
-            let fireData = FirebaseData()
-            fireData.billValue = (myData?.billValue)!
-            fireData.literesPerMonth = (myData?.literesPerMonth)!
-            fireData.litersPerDay = (myData?.litersPerDay)!
-            fireData.saveRealm()
             
+            let fireData = FirebaseData()
+            if let myData = myData {
+                
+                self.collectionData[0].cellValue = myData.litersPerDay
+                self.collectionData[1].cellValue = myData.literesPerMonth
+                self.billValue = myData.billValue
+                
+                fireData.billValue = myData.billValue
+                fireData.literesPerMonth = myData.literesPerMonth
+                fireData.litersPerDay = myData.litersPerDay
+                
+                fireData.saveRealm()
+
+                self.delegate?.loadedData()
+
+            }
         }) { (error) in
-            print (error)
-        }
-        delegate?.loadedData()
+            guard let error = error else { return }
+            self.delegate?.showError(message: error.localized())
     }
+}
 }
 
 

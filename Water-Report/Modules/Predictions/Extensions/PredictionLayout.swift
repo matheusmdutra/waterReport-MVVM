@@ -18,9 +18,9 @@ extension PredictionViewController {
         menuLabel = GlobalLayout.sharedInstance.createLabel(text: "Previsões", fontName: "Optima", size: 23, color: .white)
         
         nPessoasIcon = GlobalLayout.sharedInstance.createImageView(image: #imageLiteral(resourceName: "person-icon-blue-7573"), size: .init(width: 40, height: 40))
-        nPessoasLabel = GlobalLayout.sharedInstance.createLabel(text: "Teste", fontName: "Optima", size: 23, color: .blue)
-        nPessoasTwoPoints = GlobalLayout.sharedInstance.createLabel(text: ":", fontName: "Optima", size: 23, color: .blue)
-        nPessoasValue = GlobalLayout.sharedInstance.createLabel(text: "20L", fontName: "Optima", size: 23, color: .blue)
+        nPessoasLabel = GlobalLayout.sharedInstance.createLabel(text: "Teste", fontName: "Optima", size: 23, color: .darkBlue)
+        nPessoasTwoPoints = GlobalLayout.sharedInstance.createLabel(text: ":", fontName: "Optima", size: 23, color: .darkBlue)
+        nPessoasValue = GlobalLayout.sharedInstance.createLabel(text: "20L", fontName: "Optima", size: 23, color: .darkBlue)
         nPessoasStack = GlobalLayout.sharedInstance.createStack(distribution: .fill, spacing: 10, axis: .horizontal)
         nPessoasView = GlobalLayout.sharedInstance.genericView(stackView: nPessoasStack, imageView: nPessoasIcon, descriptionLabel: nPessoasLabel, twoPointsLabel: nPessoasTwoPoints, valueLabel: nPessoasValue)
     }

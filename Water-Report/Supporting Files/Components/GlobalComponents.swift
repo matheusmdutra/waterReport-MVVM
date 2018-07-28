@@ -29,7 +29,7 @@ class GlobalComponents {
         return mImageView
     }
     
-    func createTextFieldWith(text: String, placeHolder: String, keyboardType: UIKeyboardType, backgroundColor: UIColor, font: AppFonts, corner : CGFloat) -> UITextField {
+    func createTextFieldWith(text: String, placeHolder: String, keyboardType: UIKeyboardType, backgroundColor: UIColor, font: AppFonts, corner : CGFloat? = nil) -> UITextField {
         let mTextField = UITextField()
         mTextField.backgroundColor = backgroundColor
         mTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -40,7 +40,7 @@ class GlobalComponents {
         mTextField.layer.borderColor = UIColor.black.cgColor
         mTextField.layer.borderWidth = 0.1
         mTextField.font = UIFont().retrieveAppFont(named: font)
-        mTextField.layer.cornerRadius = corner * App().proportion
+        if let corner = corner {mTextField.layer.cornerRadius = corner * App().proportion}
         return mTextField
     }
     
@@ -53,28 +53,32 @@ class GlobalComponents {
         return mStack
     }
     
-    func createButtom(title: String?, titleColor: UIColor?,font: AppFonts, backColor: UIColor, corner: CGFloat) -> UIButton {
+    func createButtom(title: String? = nil, titleColor: UIColor? = nil,font: AppFonts, backColor: UIColor, corner: CGFloat? = nil) -> UIButton {
         let mLoginButton = UIButton()
         mLoginButton.translatesAutoresizingMaskIntoConstraints = false
         mLoginButton.setTitle(title, for: .normal)
         mLoginButton.titleLabel?.font = UIFont().retrieveAppFont(named: font)
         mLoginButton.sizeToFit()
         mLoginButton.backgroundColor = backColor
-        mLoginButton.layer.cornerRadius = corner * App().proportion
+        if let corner = corner {mLoginButton.layer.cornerRadius = corner * App().proportion}
         mLoginButton.titleLabel?.textColor = titleColor
         mLoginButton.setTitleColor(titleColor, for: .normal)
         mLoginButton.titleLabel?.textAlignment = .center
         return mLoginButton
     }
     
-    func createSimpleLabel(text: String, textColor: UIColor, font: AppFonts) -> UILabel {
+    func createSimpleLabel(text: String, textColor: UIColor, numberOflines: Int? = nil, font: AppFonts) -> UILabel {
         let mLabel = UILabel()
         mLabel.text = text
+        mLabel.textAlignment = .center
         mLabel.adjustsFontSizeToFitWidth = true
         mLabel.font =  UIFont().retrieveAppFont(named: font)
         mLabel.textColor = textColor
         mLabel.sizeToFit()
         mLabel.translatesAutoresizingMaskIntoConstraints = false
+        if let numberOfLines = numberOflines {
+            mLabel.numberOfLines = numberOfLines
+        }
         return mLabel
     }
     

@@ -41,7 +41,7 @@ extension UIView {
         }
     }
     
-    func complexAnchor(top: NSLayoutYAxisAnchor? , bottom: NSLayoutYAxisAnchor? , left: NSLayoutXAxisAnchor? , right: NSLayoutXAxisAnchor?, padding: UIEdgeInsets = .zero, size: CGSize = .zero, centerYto: UIView?, centerXto:  UIView?) {
+    func complexAnchor(top: NSLayoutYAxisAnchor? , bottom: NSLayoutYAxisAnchor? , left: NSLayoutXAxisAnchor? , right: NSLayoutXAxisAnchor?, padding: UIEdgeInsets = .zero, size: CGSize = .zero, centerYto: UIView? = nil, centerXto:  UIView? = nil) {
         
         translatesAutoresizingMaskIntoConstraints = false
         
@@ -91,7 +91,7 @@ extension UIView {
         
     }
     
-    func anchorCenteredTo(view: UIView, paddingX: CGFloat?, paddingY: CGFloat?) {
+    func anchorCenteredTo(view: UIView, paddingX: CGFloat? = nil, paddingY: CGFloat? = nil) {
         
         
         self.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: paddingX ?? 0).isActive = true

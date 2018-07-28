@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 
 extension LoginViewController : BaseProtocol {
+    func readModel() {
+        
+    }
+    
     func loadingData() {
         showLoading()
     }
@@ -23,7 +27,7 @@ extension LoginViewController : BaseProtocol {
         self.router?.goToNextView(named: .mainScreen)
     }
     
-    func showLoginError(message: String) {
+    func showError(message: String) {
         loadedData()
         showMessage(message, withTitle: "Atenção")
     }

@@ -42,7 +42,7 @@ class ComplexComponents {
         return myTopImageView
     }
     
-    func createButtom(title: String?, titleColor: UIColor?,font: AppFonts, backColor: UIColor, corner: CGFloat, image: UIImage, imageSize: CGSize = .zero) -> UIButton {
+    func createButtom(title: String? = nil, titleColor: UIColor? = nil,font: AppFonts, backColor: UIColor, corner: CGFloat, image: UIImage, imageSize: CGSize = .zero) -> UIButton {
         let mLoginButton = UIButton()
         mLoginButton.translatesAutoresizingMaskIntoConstraints = false
         if let title = title { mLoginButton.setTitle(title, for: .normal)}
@@ -59,7 +59,7 @@ class ComplexComponents {
         return mLoginButton
     }
     
-    func createCollectionView(scrollDirection: UICollectionViewScrollDirection , backgroundColor: UIColor, corner: CGFloat, borderWidht: CGFloat?, borderColor: UIColor?) -> UICollectionView {
+    func createCollectionView(scrollDirection: UICollectionViewScrollDirection , backgroundColor: UIColor? = nil, corner: CGFloat? = nil, borderWidht: CGFloat? = nil, borderColor: UIColor? = nil) -> UICollectionView {
         let myLayout = UICollectionViewFlowLayout()
         myLayout.scrollDirection = scrollDirection
         let frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
@@ -67,7 +67,7 @@ class ComplexComponents {
         myCollectionView.translatesAutoresizingMaskIntoConstraints = false
         myCollectionView.backgroundColor = backgroundColor
         myCollectionView.contentMode = .scaleAspectFill
-        myCollectionView.layer.cornerRadius = corner
+        if let corner = corner {  myCollectionView.layer.cornerRadius = corner }
         if let borderWidht = borderWidht {  myCollectionView.layer.borderWidth = borderWidht }
         if let borderColor = borderColor {  myCollectionView.layer.borderColor = borderColor.cgColor }
         return myCollectionView

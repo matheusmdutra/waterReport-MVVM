@@ -13,15 +13,12 @@ import UIKit
 extension MainScreenController : UICollectionViewDelegate, UICollectionViewDataSource  {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell" , for: indexPath) as! MainCell
-        cell.icon.image = viewModel.collectionData[indexPath.item].iconImage
-        cell.numberOfLiters.text = "\(String(describing: viewModel.collectionData[indexPath.item].cellValue!))L"
-        cell.collectionTitle.text = viewModel.collectionData[indexPath.item].cellLabel
-        viewModel.myData.count > 0 ? (realsLabel.text = "R$ \(String(describing: viewModel.myData.first!.billValue))") : (realsLabel.text = "R$ 0")
+        cell.setupCell(data: viewModel.collectionData, index: indexPath.item)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return viewModel.collectionData.count
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

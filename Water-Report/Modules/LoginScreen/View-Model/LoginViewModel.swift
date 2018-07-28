@@ -25,7 +25,7 @@ class LoginViewModel {
     func checkUserInfo(email: String?, password: String?) {
         
         if email?.count == 0 || password?.count == 0 {
-            self.delegate?.showLoginError(message: "Para realizar o login, é necessário o preenchimento de todos os campos")
+            self.delegate?.showError(message: "Para realizar o login, é necessário o preenchimento de todos os campos")
             
         } else {
             guard let email = email else { return }
@@ -43,7 +43,7 @@ class LoginViewModel {
             self.delegate?.loadedData()
             self.delegate?.goToNextController(named: .mainScreen)
         }) { (error) in
-            self.delegate?.showLoginError(message: error!)
+            self.delegate?.showError(message: error!)
         }
     }
 }
