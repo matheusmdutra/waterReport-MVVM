@@ -10,6 +10,9 @@
 		051F72E12103E9E700D6FF47 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F72E02103E9E700D6FF47 /* UIImage.swift */; };
 		051F72E32104BD2F00D6FF47 /* ComplexComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F72E22104BD2F00D6FF47 /* ComplexComponents.swift */; };
 		052D9DB5210955D800CA59D9 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052D9DB4210955D800CA59D9 /* UIColor.swift */; };
+		052D9DBA210D42DC00CA59D9 /* PredictionsComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052D9DB9210D42DC00CA59D9 /* PredictionsComponents.swift */; };
+		052D9DBC210E6BA500CA59D9 /* PredictionsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052D9DBB210E6BA500CA59D9 /* PredictionsCollectionView.swift */; };
+		052D9DC0210E6C3300CA59D9 /* PredictionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052D9DBF210E6C3300CA59D9 /* PredictionViewModel.swift */; };
 		0546973720CD8820001B833A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0546973620CD8820001B833A /* UIView.swift */; };
 		0546973920CDB9B2001B833A /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0546973820CDB9B2001B833A /* Layout.swift */; };
 		0557BCBE20A221D900522C3C /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0557BCBD20A221D900522C3C /* UIViewController.swift */; };
@@ -51,6 +54,9 @@
 		051F72E02103E9E700D6FF47 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		051F72E22104BD2F00D6FF47 /* ComplexComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexComponents.swift; sourceTree = "<group>"; };
 		052D9DB4210955D800CA59D9 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		052D9DB9210D42DC00CA59D9 /* PredictionsComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionsComponents.swift; sourceTree = "<group>"; };
+		052D9DBB210E6BA500CA59D9 /* PredictionsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionsCollectionView.swift; sourceTree = "<group>"; };
+		052D9DBF210E6C3300CA59D9 /* PredictionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionViewModel.swift; sourceTree = "<group>"; };
 		0546973620CD8820001B833A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		0546973820CDB9B2001B833A /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		0557BCBD20A221D900522C3C /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +110,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		052D9DB7210D42C800CA59D9 /* View-Model */ = {
+			isa = PBXGroup;
+			children = (
+				052D9DBF210E6C3300CA59D9 /* PredictionViewModel.swift */,
+			);
+			path = "View-Model";
+			sourceTree = "<group>";
+		};
+		052D9DB8210D42CE00CA59D9 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				052D9DB9210D42DC00CA59D9 /* PredictionsComponents.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		052D9DBD210E6BDC00CA59D9 /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				0557BCE520A284FE00522C3C /* MainCell.swift */,
+				0557BCE020A283FC00522C3C /* MainCollectionView.swift */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
+		052D9DBE210E6BE900CA59D9 /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				052D9DBB210E6BA500CA59D9 /* PredictionsCollectionView.swift */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
 		0557BCCA20A2429A00522C3C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				0592904B20A8F7C6000B930D /* View-Model */,
-				0557BCE220A284DA00522C3C /* Cell */,
 				0557BCDD20A27F1600522C3C /* Extensions */,
 				0557BCDB20A27E0D00522C3C /* MainScreenController.swift */,
 			);
@@ -136,19 +174,11 @@
 		0557BCDD20A27F1600522C3C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				052D9DBD210E6BDC00CA59D9 /* Collection */,
 				0557BCDE20A27F2700522C3C /* MainLayout.swift */,
-				0557BCE020A283FC00522C3C /* MainCollectionView.swift */,
 				0592905420AA3ACC000B930D /* ReceivedData.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		0557BCE220A284DA00522C3C /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				0557BCE520A284FE00522C3C /* MainCell.swift */,
-			);
-			path = Cell;
 			sourceTree = "<group>";
 		};
 		05744DDE20A0DB8F00382184 = {
@@ -265,7 +295,8 @@
 		0592902520A79909000B930D /* Predictions */ = {
 			isa = PBXGroup;
 			children = (
-				0592904C20A8F7CE000B930D /* View-Model */,
+				052D9DB8210D42CE00CA59D9 /* Components */,
+				052D9DB7210D42C800CA59D9 /* View-Model */,
 				0592902820A79952000B930D /* Extensions */,
 				0592902620A79931000B930D /* PredictionViewController.swift */,
 			);
@@ -275,6 +306,7 @@
 		0592902820A79952000B930D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				052D9DBE210E6BE900CA59D9 /* Collection */,
 				0592902920A7995E000B930D /* PredictionLayout.swift */,
 			);
 			path = Extensions;
@@ -296,13 +328,6 @@
 			isa = PBXGroup;
 			children = (
 				0592903820A7E77A000B930D /* MainScreenViewModel.swift */,
-			);
-			path = "View-Model";
-			sourceTree = "<group>";
-		};
-		0592904C20A8F7CE000B930D /* View-Model */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			path = "View-Model";
 			sourceTree = "<group>";
@@ -499,6 +524,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				052D9DBC210E6BA500CA59D9 /* PredictionsCollectionView.swift in Sources */,
+				052D9DBA210D42DC00CA59D9 /* PredictionsComponents.swift in Sources */,
 				051F72E32104BD2F00D6FF47 /* ComplexComponents.swift in Sources */,
 				05EF46CC20F2CF41008BCD7C /* BaseProtocols.swift in Sources */,
 				05744E0720A0DD1300382184 /* LoginViewController.swift in Sources */,
@@ -522,6 +549,7 @@
 				05744DEB20A0DB8F00382184 /* AppDelegate.swift in Sources */,
 				0592902A20A7995E000B930D /* PredictionLayout.swift in Sources */,
 				05744E0920A0E5B900382184 /* LoginLayout.swift in Sources */,
+				052D9DC0210E6C3300CA59D9 /* PredictionViewModel.swift in Sources */,
 				05EF46C620F296F4008BCD7C /* UIFont.swift in Sources */,
 				0557BCC720A22DF700522C3C /* CurrentUser.swift in Sources */,
 				0557BCC920A22E1C00522C3C /* LoginViewModel.swift in Sources */,

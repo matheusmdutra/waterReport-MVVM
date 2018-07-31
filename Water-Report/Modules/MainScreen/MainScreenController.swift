@@ -55,8 +55,8 @@ class MainScreenController : BaseViewController, UICollectionViewDelegateFlowLay
     
     
     @objc func goToPredictionView() {
-        //        router.goToNextController(from: self, to: .predictions)
-    }
+        self.tabBarController?.selectedIndex = 1
+        }
     
     var previsaoLabel = GlobalComponents().createSimpleLabel(text: "Previsão", textColor: .darkBlue, font: .normal)
     
@@ -82,6 +82,8 @@ class MainScreenController : BaseViewController, UICollectionViewDelegateFlowLay
         navigationController?.navigationBar.transparentNavigationBar()
      
         setupMyCollection()
+        
+        previsaoIcon.addTarget(self, action: #selector(goToPredictionView), for: .touchUpInside)
     }
   
     func setupMyCollection() {

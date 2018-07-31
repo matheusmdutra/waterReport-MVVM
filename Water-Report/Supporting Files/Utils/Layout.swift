@@ -74,8 +74,7 @@ class GlobalLayout {
     
     func genericView(stackView: UIStackView, imageView: UIImageView , descriptionLabel: UILabel, twoPointsLabel: UILabel, valueLabel: UILabel) -> UIView {
         
-       
-        
+    
         let iconContainerView = UIView()
         let labelContainerView = UIView()
         let twoPointsContainerView = UIView()
@@ -83,10 +82,6 @@ class GlobalLayout {
         let mainView = UIView()
     
         mainView.translatesAutoresizingMaskIntoConstraints = false
-        
-      
-       
-     
         
         iconContainerView.addSubview(imageView)
         labelContainerView.addSubview(descriptionLabel)

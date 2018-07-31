@@ -14,8 +14,7 @@ extension MainScreenController {
         
         let heightOfSafeAreaIphoneX = UIApplication.shared.keyWindow?.safeAreaInsets.top
         
-        let billLabelView = UIView()
-        
+        var billLabelView = UIView()
         //=====================================\\
         //  *********  Adding views  ********\\
         //======================================\\
@@ -50,33 +49,40 @@ extension MainScreenController {
         //  *********  Setting Anchors  ********\\
         //======================================\\
         
-        topContainer.simpleAnchor(top: view.topAnchor, bottom: nil, left: view.leadingAnchor, right: view.trailingAnchor, padding: .zero, size: .init(width: 0, height: view.frame.height * 0.10))
+        topContainer.simpleAnchor(top: view.topAnchor, bottom: nil, left: view.leadingAnchor, right: view.trailingAnchor, padding: .zero)
+        topContainer.sized(with:.init(width: 0, height: view.frame.height * 0.10))
         
-        middleContainer.simpleAnchor(top: topContainer.bottomAnchor, bottom: nil, left: view.leadingAnchor, right: view.trailingAnchor, padding: .zero, size: .init(width: 0, height: view.frame.height * 0.45))
+        middleContainer.simpleAnchor(top: topContainer.bottomAnchor, bottom: nil, left: view.leadingAnchor, right: view.trailingAnchor, padding: .zero)
+        middleContainer.sized(with:.init(width: 0, height: view.frame.height * 0.45))
+
         
-        bottomContainer.simpleAnchor(top: nil, bottom: view.bottomAnchor, left: view.leadingAnchor, right: view.trailingAnchor, padding: .zero, size: .init(width: 0, height: view.frame.height * 0.45))
+        bottomContainer.simpleAnchor(top: nil, bottom: view.bottomAnchor, left: view.leadingAnchor, right: view.trailingAnchor, padding: .zero)
+        bottomContainer.sized(with:.init(width: 0, height: view.frame.height * 0.45))
+
         
-        
-        viewTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        viewTitle.bottomAnchor.constraint(equalTo: topContainer.bottomAnchor, constant: -10).isActive = true
+        viewTitle.bottom(to: topContainer.bottomAnchor, padding: 10)
+        viewTitle.centeredX(to: view)
         
         wrLogo.complexAnchor(top: nil, bottom: topContainer.bottomAnchor, left: nil, right: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 10, right: 20), size: .init(width: 22, height: 22))
                 
-        collectionView.simpleAnchor(top: topContainer.bottomAnchor, bottom: pageControl.topAnchor, left: middleContainer.leadingAnchor, right: middleContainer.trailingAnchor, padding: .init(top: 30 * App().proportion, left: 30, bottom: 20 * App().proportion, right: 30), size: .zero)
+        collectionView.simpleAnchor(top: topContainer.bottomAnchor, bottom: pageControl.topAnchor, left: middleContainer.leadingAnchor, right: middleContainer.trailingAnchor, padding: .init(top: 30 * App().proportion, left: 30, bottom: 20 * App().proportion, right: 30))
         
-        pageControl.anchorCenteredTo(view: middleContainer, paddingX: nil, paddingY: nil)
+        pageControl.centeredTo(view: middleContainer, paddingX: nil, paddingY: nil)
         
-        touchIcon.complexAnchor(top: nil, bottom: nil, left: pageControl.trailingAnchor, right: nil, padding: .init(top: 0, left: 11.5, bottom: 0, right: 0), size: .zero, centerYto: middleContainer, centerXto: nil)
+        touchIcon.leading(to: pageControl.trailingAnchor, padding: 11.5)
+        touchIcon.centeredY(to: middleContainer)
+
         
-        billView.simpleAnchor(top: pageControl.bottomAnchor, bottom: middleContainer.bottomAnchor, left: middleContainer.leadingAnchor, right: middleContainer.trailingAnchor, padding: .init(top: 30 * App().proportion, left: 30, bottom: 20 * App().proportion, right: 30), size: .zero)
+        billView.simpleAnchor(top: pageControl.bottomAnchor, bottom: middleContainer.bottomAnchor, left: middleContainer.leadingAnchor, right: middleContainer.trailingAnchor, padding: .init(top: 30 * App().proportion, left: 30, bottom: 20 * App().proportion, right: 30))
+
         
-        billStack.anchorCenteredTo(view: billView, paddingX: nil, paddingY: nil)
+        billStack.centeredTo(view: billView)
         
         historicoStack.anchorEqualTo(view: historicView)
         
         previsaoStack.anchorEqualTo(view: previsaoView)
         
-        historicAndPrevisionStack.anchorCenteredTo(view: bottomContainer, paddingX: nil, paddingY: -CGFloat((tabBarController?.tabBar.bounds.height)!))
+        historicAndPrevisionStack.centeredTo(view: bottomContainer, paddingX: nil, paddingY: -CGFloat((tabBarController?.tabBar.bounds.height)!))
         
         billLabel.anchorEqualTo(view: billLabelView)
     }

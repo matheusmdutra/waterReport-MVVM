@@ -44,7 +44,7 @@ class MainCell: UICollectionViewCell {
         addSubview(collectionStack)
         
         collectionTitle.anchorEqualTo(view: titleView)
-        collectionStack.anchorCenteredTo(view: self)
+        collectionStack.centeredTo(view: self)
         
     }
 }
